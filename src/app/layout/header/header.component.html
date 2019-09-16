@@ -1,0 +1,21 @@
+<mat-toolbar color="primary" class='mat-elevation-z6 app-navbar'>
+
+
+    <mat-toolbar-row>
+        <button mat-button [matMenuTriggerFor]="esconfig">ElasticSerarch Config</button>
+        <mat-menu #esconfig="matMenu">
+            <button mat-menu-item>Register ES Server</button>
+            <button mat-menu-item>Create ES Index</button>
+            <button mat-menu-item>sync ES Database</button>
+        </mat-menu>
+        <button mat-button [matMenuTriggerFor]="settings">Settings</button>
+        <mat-menu #settings="matMenu">
+            <button mat-menu-item>Register Relation Database</button>
+            <button mat-menu-item>Schedule Sync Data</button>
+        </mat-menu>
+        <button mat-button [matMenuTriggerFor]="help">Help</button>
+        <mat-menu #help="matMenu">
+            <button mat-menu-item>Help</button>
+        </mat-menu>
+    </mat-toolbar-row>
+</mat-toolbar>
