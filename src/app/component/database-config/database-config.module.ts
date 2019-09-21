@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { SharedModule } from '../shared/shared.module';
-import { DatabaseConfigComponent } from './database-config/database-config.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { DatabaseConfigComponent } from './database-config.component';
+
 
 
 @NgModule({
@@ -12,10 +13,7 @@ import { DatabaseConfigComponent } from './database-config/database-config.compo
     SharedModule
    
   ],
-  exports: [
-    DatabaseConfigComponent
-     
-  ],
+  exports: [],
   declarations: [
    DatabaseConfigComponent
    

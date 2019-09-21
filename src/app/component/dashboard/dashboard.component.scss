@@ -1,0 +1,124 @@
+.dashboard {
+   
+   
+    height: 1560px;
+    padding: 0px 0px 0px 0px;
+    overflow: auto;
+    margin-top: 120px;
+}
+.some-page-wrapper {
+    margin: 0px;
+  }
+  
+  .row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+  
+  .column {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+  }
+  
+  .blue-column {
+    background-color:#3f51b5; 
+    height: 200px;
+    color: white
+  }
+  
+  .image-column {
+    background-color:white;
+    height: 450px;
+    color: black;
+    padding-top: 5px;
+  }
+  .h2, h2 {
+    font-size: 1.5rem;
+    font-family: OCR A Std, monospace;
+    font-style: italic;
+}
+
+.h6, h6 {
+   
+    font-family: OCR A Std, monospace;
+    font-style: italic;
+}
+
+img.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    }
+
+
+.img-left {
+ 
+    vertical-align: middle;
+    border-style: none;
+    margin-left: 45%;
+}
+.img-right {
+ 
+  vertical-align: middle;
+  border-style: none;
+  margin-right: 45%;
+}
+.h1-db {
+  color: red;
+  text-align: start;
+  margin-top: 11%;
+  font-size: 1.5rem;
+  
+  font-style: italic;
+  font-weight: 400;
+}
+
+.h6-db {
+  //color: red;
+  text-align: start;
+  font-style: italic;
+  font-weight: 400;
+  display: list-item; 
+}
+
+.h1-db_r2 {
+  color: red;
+  text-align: start;
+  margin-top: 5%;
+  font-size: 1.5rem;
+  font-style: italic;
+  font-weight: 400;
+  margin-left: 45%;
+}
+
+.h6-db_r2{
+  //color: red;
+  font-style: italic;
+  font-weight: 400;
+  display: list-item; 
+  margin-left: 45%;
+}
+
+.h1-db_r3 {
+  color: red;
+  text-align: start;
+  margin-top: 14%;
+  font-size: 1.5rem;
+  
+  font-style: italic;
+  font-weight: 400;
+}
+
+.h6-db_r3 {
+  //color: red;
+  text-align: start;
+  font-style: italic;
+  font-weight: 400;
+  display: list-item; 
+}
