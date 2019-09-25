@@ -5,32 +5,36 @@
     padding: 0px 0px 0px 0px;
     overflow: auto;
     margin-top: 120px;
+    background-color: white;
 }
-.some-page-wrapper {
-    margin: 0px;
-  }
+
+.parent-row{
+  cursor: pointer; flex-direction: row; box-sizing: border-box; display: flex;
+  margin-top: 1px;
+  height: 450px;
+  min-height: 450px;
+}
+
+.title-row{
+  cursor: pointer; flex-direction: row; box-sizing: border-box; display: flex;
+   height: 300px;
+  min-height: 200px;
+  background-color:#3f51b5; 
+  height: 200px;
+  color: white;
+  text-align: center;
+}
+
+.inner_column{
+  flex: 1 1 100%; box-sizing: border-box; max-width: 50%;
+  text-align: center;
+  padding-right: 50px;
+  padding-top: 20px;  
+}
+.full-column{
+  flex: 1 1 100%; box-sizing: border-box; max-width: 100%;
+}
   
-  .row {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
-    margin-right: 0px;
-    margin-left: 0px;
-  }
-  
-  .column {
-    display: flex;
-    flex-direction: column;
-    flex-basis: 100%;
-    flex: 1;
-  }
-  
-  .blue-column {
-    background-color:#3f51b5; 
-    height: 200px;
-    color: white
-  }
   
   .image-column {
     background-color:white;
@@ -38,16 +42,18 @@
     color: black;
     padding-top: 5px;
   }
-  .h2, h2 {
+  .h1, h1 {
     font-size: 1.5rem;
     font-family: OCR A Std, monospace;
     font-style: italic;
+    text-align: center;
 }
 
 .h6, h6 {
    
     font-family: OCR A Std, monospace;
     font-style: italic;
+    text-align: center;
 }
 
 img.center {
@@ -67,14 +73,14 @@ img.center {
  
   vertical-align: middle;
   border-style: none;
-  margin-right: 45%;
+
 }
 .h1-db {
   color: red;
   text-align: start;
   margin-top: 11%;
   font-size: 1.5rem;
-  
+  margin-left: 90px;
   font-style: italic;
   font-weight: 400;
 }
@@ -84,25 +90,25 @@ img.center {
   text-align: start;
   font-style: italic;
   font-weight: 400;
-  display: list-item; 
+  //display: list-item; 
 }
 
 .h1-db_r2 {
   color: red;
-  text-align: start;
+ 
   margin-top: 5%;
   font-size: 1.5rem;
   font-style: italic;
   font-weight: 400;
-  margin-left: 45%;
+  margin-left: 40%;
 }
 
 .h6-db_r2{
-  //color: red;
+
   font-style: italic;
   font-weight: 400;
-  display: list-item; 
-  margin-left: 45%;
+  //display: list-item; 
+  margin-left: 40%;
 }
 
 .h1-db_r3 {
@@ -120,5 +126,31 @@ img.center {
   text-align: start;
   font-style: italic;
   font-weight: 400;
-  display: list-item; 
+ // display: list-item; 
+ margin-left: 12%;
 }
+
+
+.section_right {
+   display: flex;
+   justify-content: flex-end;
+   flex-wrap: wrap;
+   margin-top: 2%;
+}
+
+.section_left {
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap;
+  margin-top: 2%;
+}
+
+.media { 
+   min-width: 0;
+  
+}
+img {
+   width: 430px;
+   max-width: 100%; 
+   max-height: 430px; 
+ }
