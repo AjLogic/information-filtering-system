@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { MatTableModule, MatPaginatorModule, MatCardModule, MatIconModule, MatFormFieldModule, MatInputModule, MatSnackBarModule, MatOptionModule, MatSelect, MatSelectModule, MatTabGroup, MatTabsModule, MatButtonToggleModule, MatButtonToggleGroup, MatButtonModule, MatCheckboxModule, MatDividerModule, MatToolbarModule, MatMenuModule } from '@angular/material';
+import { MatTableModule, MatPaginatorModule, MatCardModule, MatIconModule, MatFormFieldModule, MatInputModule, MatSnackBarModule, MatOptionModule, MatSelect, MatSelectModule, MatTabGroup, MatTabsModule, MatButtonToggleModule, MatButtonToggleGroup, MatButtonModule, MatCheckboxModule, MatDividerModule, MatToolbarModule, MatMenuModule, MatSlideToggleModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import {SelectionModel} from '@angular/cdk/collections';
 import {FlatTreeControl} from '@angular/cdk/tree';
@@ -29,7 +29,8 @@ import {BehaviorSubject} from 'rxjs';
     MatDividerModule,
     MatToolbarModule,
     MatMenuModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatSlideToggleModule
     
   ],
   exports: [
@@ -55,7 +56,8 @@ import {BehaviorSubject} from 'rxjs';
     MatDividerModule,
     MatToolbarModule,
     MatMenuModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatSlideToggleModule
 
   ]
 })

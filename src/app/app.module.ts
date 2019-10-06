@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AppLayoutModule } from './layout/layout.module';
-import { DatabaseConfigComponent } from './component/database-config/database-config.component';
 
-import { DatabaseConfigModule } from './component/database-config/database-config.module';
 import { DashboardModule } from './component/dashboard/dashboard.module';
+import { RegisterRdbmsComponent } from './component/register-rdbms/register-rdbms.component';
+import { RegisterRdbmsModule } from './component/register-rdbms/register-rdbms.module';
+import { HttpClientModule } from '@angular/common/http';
 
-const routes: Routes =[
+
+const routes: Routes = [
   //{ path: '', redirectTo: '/dashboard',  pathMatch: 'full'},
 ];
 
@@ -24,10 +26,11 @@ const routes: Routes =[
     AppRoutingModule,
     AppLayoutModule,
     DashboardModule,
-    DatabaseConfigModule,
+    RegisterRdbmsModule,
+    HttpClientModule,
     RouterModule.forRoot(routes, { useHash: true })
-    
   ],
+  exports: [],
   providers: [],
   bootstrap: [AppComponent]
 })

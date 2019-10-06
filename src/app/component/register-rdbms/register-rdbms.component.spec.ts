@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DatabaseConfigComponent } from './database-config.component';
+import { RegisterRdbmsComponent } from './register-rdbms.component';
 
-describe('DatabaseConfigComponent', () => {
-  let component: DatabaseConfigComponent;
-  let fixture: ComponentFixture<DatabaseConfigComponent>;
+describe('RegisterRdbmsComponent', () => {
+  let component: RegisterRdbmsComponent;
+  let fixture: ComponentFixture<RegisterRdbmsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DatabaseConfigComponent ]
+      declarations: [ RegisterRdbmsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DatabaseConfigComponent);
+    fixture = TestBed.createComponent(RegisterRdbmsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
