@@ -1,6 +1,6 @@
 export interface RdbmsEntity {
-    name: string;
-    position: number;
-    weight: number;
-    symbol: string;
+    connectionType: string;
+    serverConnectionUrl: string;
+    userName: string;
+    isActive: boolean;
   }

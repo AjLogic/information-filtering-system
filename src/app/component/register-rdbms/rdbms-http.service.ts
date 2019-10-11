@@ -27,5 +27,8 @@ export class RdbmsHttpService {
       return this.http.post("http://localhost:8080/server/config/rdbms",serverDetails);
   }
  
+  public findAllRdbmsServerDetails():Observable<any>{
+    return this.http.get("http://localhost:8080/server/config/rdbms");
+}
 }
 

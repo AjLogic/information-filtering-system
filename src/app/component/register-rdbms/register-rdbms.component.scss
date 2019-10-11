@@ -1,7 +1,7 @@
 .dashboard
 {
     margin-top: 25%;
-    min-height: 960px;
+    min-height: 760px;
     height: 600px;
     width: 100%;
     background-color: white;
@@ -14,7 +14,7 @@ table {
 .divided_row_1{
     flex: 1 1 100%; 
     box-sizing: border-box;
-    max-width: 40%;
+    max-width: 50%;
     height:-webkit-fill-available;
    padding: 85px 15px 15px 15px;
 }
@@ -22,7 +22,7 @@ table {
 .divided_row_2{
   flex: 1 1 100%; 
   box-sizing: border-box;
-  max-width: 60%;
+  max-width: 50%;
   height:-webkit-fill-available;
  padding: 85px 15px 15px 15px;
 }
