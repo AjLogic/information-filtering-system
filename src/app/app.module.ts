@@ -11,6 +11,8 @@ import { DashboardModule } from './component/dashboard/dashboard.module';
 import { RegisterRdbmsComponent } from './component/register-rdbms/register-rdbms.component';
 import { RegisterRdbmsModule } from './component/register-rdbms/register-rdbms.module';
 import { HttpClientModule } from '@angular/common/http';
+import { RegisterEsServerComponent } from './component/register-es-server/register-es-server.component';
+import { RegisterEsModule } from './component/register-es-server/register-rdbms.module';
 
 
 const routes: Routes = [
@@ -28,6 +30,7 @@ const routes: Routes = [
     DashboardModule,
     RegisterRdbmsModule,
     HttpClientModule,
+    RegisterEsModule,
     RouterModule.forRoot(routes, { useHash: true })
   ],
   exports: [],

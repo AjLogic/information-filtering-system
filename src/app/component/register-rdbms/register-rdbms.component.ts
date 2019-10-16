@@ -77,6 +77,7 @@ export class RegisterRdbmsComponent implements OnInit , AfterContentInit {
       this.rdbmsHttpService.registerRdbmsDatabase(this.rdbmsRegisterForm.value).subscribe(
         response =>{
           this.resetForm();
+          this.findAll();
         },
         error => {
           this.resetForm();
