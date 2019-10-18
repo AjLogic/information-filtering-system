@@ -16,8 +16,8 @@
             
                                           
                                             <!-- Name Column -->
-                                            <ng-container matColumnDef="esServerUrl">
-                                                <th mat-header-cell *matHeaderCellDef> esServerUrl </th>
+                                            <ng-container matColumnDef="serverConnectionUrl">
+                                                <th mat-header-cell *matHeaderCellDef> serverConnectionUrl </th>
                                                 <td mat-cell *matCellDef="let element"> Ajinkya </td>
                                             </ng-container>
             
@@ -75,7 +75,7 @@
                                     <div fxflex="50" class="half_row">
                                         <mat-form-field autocomplete="off" class="example-full-width" appearance="outline">
                                             <mat-label>ES Server URL</mat-label>
-                                            <input matInput placeholder="User Name"  required>
+                                            <input matInput placeholder="User Name"  required formControlName="serverConnectionUrl">
                                         </mat-form-field>
                                     </div>
                                     <div fxflex="50" class="half_row">
@@ -104,7 +104,7 @@
                                         <mat-form-field autocomplete="off" class="example-full-width" appearance="outline">
                                             <mat-label>Oganisation Unit</mat-label>
     
-                                            <input matInput required autocomplete="off" disabled="true" Value="AjLogic IND">
+                                            <input matInput  autocomplete="off" disabled="true" Value="AjLogic IND">
                                         </mat-form-field>
                                     </div>
                                 </div>

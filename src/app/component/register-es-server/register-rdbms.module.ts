@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { RegisterEsRoutingModule } from './register-es-routing.module';
 import { RegisterEsServerComponent } from './register-es-server.component';
+import { EsConfigServerHttpService } from './es-http.service';
 
 
 
@@ -18,6 +19,6 @@ import { RegisterEsServerComponent } from './register-es-server.component';
   declarations: [
     RegisterEsServerComponent
   ],
-  providers:[]
+  providers:[EsConfigServerHttpService]
 })
 export class RegisterEsModule { }
