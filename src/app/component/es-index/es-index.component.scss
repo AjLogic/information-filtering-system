@@ -1,0 +1,80 @@
+.divided_row_1{
+    flex: 1 1 100%; 
+    box-sizing: border-box;
+    max-width: 100%;
+    height:-webkit-fill-available;
+   padding: 85px 15px 15px 15px;
+}
+
+.group-title {
+    color: #357d8f;
+    margin-bottom: 10px;
+  }
+
+  .direction_row
+  {
+   flex-direction: row; 
+   box-sizing: border-box; 
+   display: flex;
+  }
+ 
+  .half_row{
+    flex: 1 1 100%; 
+    box-sizing: border-box;
+    max-width: 50%;
+    
+  }
+  
+  .full_row{
+      flex: 1 1 100%; 
+      box-sizing: border-box;
+      max-width: 100%;
+      
+  }
+ .direction_row
+ {
+  flex-direction: row; 
+  box-sizing: border-box; 
+  display: flex;
+ }
+ .mat-form-field {
+    /* display: inline-block; */
+    position: relative;
+    text-align: left;
+    width: 90%;
+    padding-top: 4%;
+  
+  }
+  .dashboard
+{
+    margin-top: 25%;
+    min-height: 800px;
+    height:800px;
+    width: 100%;
+    background-color: white;
+    margin-top: 5%;
+    overflow: hidden;
+}
+
+
+.btn_right{
+  display:flex; justify-content:flex-end; width:100%; padding:5px;
+}
+  
+.test{
+  flex: 1 1 100%; 
+  box-sizing: border-box;
+  max-width: 25%;
+  height:-webkit-fill-available;
+ padding: 85px 15px 15px 15px;
+
+ height: fit-content;
+}
+.test1{
+  flex: 1 1 100%; 
+  box-sizing: border-box;
+  max-width: 75%;
+  height:-webkit-fill-available;
+ padding: 85px 15px 15px 15px;
+ height: fit-content; 
+}

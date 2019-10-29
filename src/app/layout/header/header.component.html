@@ -6,7 +6,7 @@
             <button mat-button [matMenuTriggerFor]="esconfig">ElasticSerarch Config</button>
             <mat-menu #esconfig="matMenu">
                 <button mat-menu-item routerLink="./register-es">Register ES Server</button>
-                <button mat-menu-item>Create ES Index</button>
+                <button mat-menu-item routerLink="./es-index">Create ES Index</button>
                 <button mat-menu-item>sync ES Database</button>
             </mat-menu>
             <button mat-button [matMenuTriggerFor]="settings">RDBMS Settings</button>

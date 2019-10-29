@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from './material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ListFilterPipe } from './filter/list-filter.pipe';
 
 @NgModule({
     imports: [
@@ -15,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
       ReactiveFormsModule
       
     ],
-    providers:[]
+    providers:[ListFilterPipe],
+    declarations:[ListFilterPipe]
   })
 export class SharedModule { }

@@ -1,131 +1,155 @@
 <div class="dashboard">
 
-        <div class="containerX">
-            <div class="colored box nopad direction_row" fxlayout="row">
-                <div fxflex="40" class=" divided_row_1">
-    
+    <div class="containerX">
+        <div class="colored box nopad direction_row" fxlayout="row">
+            <div fxflex="40" class=" divided_row_1">
+
+                <mat-card class='mat-elevation-z8'>
+
+                    <mat-card-title>
+                        <h5 class="group-title">Configured RDBMS Database with project.</h5>
+                    </mat-card-title>
+                    <mat-divider></mat-divider>
+                    <mat-card-content>
+                        <div>
+                            <table mat-table [dataSource]="dataSource">
+
+
+                                <!-- Name Column -->
+                                <ng-container matColumnDef="IP Address">
+                                    <th mat-header-cell *matHeaderCellDef> IP Address </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.ipAddress}} </td>
+                                </ng-container>
+
+                                <!-- Weight Column -->
+                                <ng-container matColumnDef="environment">
+                                    <th mat-header-cell *matHeaderCellDef> environment </th>
+                                    <td mat-cell *matCellDef="let element">{{element.environment}} </td>
+                                </ng-container>
+
+                                <!-- Symbol Column -->
+
+                                <ng-container matColumnDef="active">
+                                    <th mat-header-cell *matHeaderCellDef> Status </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.isActive ? 'Active': 'Inactive'}}
+                                    </td>
+                                </ng-container>
+
+
+
+                                <ng-container matColumnDef="action">
+                                    <th mat-header-cell *matHeaderCellDef></th>
+                                    <td mat-cell *matCellDef="let element">
+                                        <button mat-icon-button color="primary" class="list_icon">
+                                        <mat-icon aria-label="visibility"> visibility</mat-icon>
+                                    </button>
+                                        <button mat-icon-button class="list_icon" color="primary">
+                                            <mat-icon aria-label="Delete">delete</mat-icon>
+                                        </button>
+                                    </td>
+                                   
+                                </ng-container>
+
+
+
+                                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+                                </tr>
+                            </table>
+
+                            <mat-paginator [pageSizeOptions]="[05, 10]" showFirstLastButtons></mat-paginator>
+                        </div>
+                    </mat-card-content>
+
+                </mat-card>
+            </div>
+            <mat-divider [vertical]="true"></mat-divider>
+            <div fxflex="60" class="divided_row_2">
+                <form [formGroup]="esConfigForm" [autocomplete]="'off'">
                     <mat-card class='mat-elevation-z8'>
-    
                         <mat-card-title>
-                            <h5 class="group-title">Configured RDBMS Database with project.</h5>
+                            <h5 class="group-title">Configured Elastic Search Server</h5>
                         </mat-card-title>
                         <mat-divider></mat-divider>
                         <mat-card-content>
-                                <div>
-                                        <table mat-table [dataSource]="dataSource">
-            
-                                          
-                                            <!-- Name Column -->
-                                            <ng-container matColumnDef="serverConnectionUrl">
-                                                <th mat-header-cell *matHeaderCellDef> serverConnectionUrl </th>
-                                                <td mat-cell *matCellDef="let element"> Ajinkya </td>
-                                            </ng-container>
-            
-                                            <!-- Weight Column -->
-                                            <ng-container matColumnDef="environment">
-                                                <th mat-header-cell *matHeaderCellDef> environment </th>
-                                                <td mat-cell *matCellDef="let element">Ajinkya </td>
-                                            </ng-container>
-            
-                                            <!-- Symbol Column -->
-                                           
-                                            <ng-container matColumnDef="active">
-                                                <th mat-header-cell *matHeaderCellDef> Status </th>
-                                                <td mat-cell *matCellDef="let element" > {{element.isActive ? 'Active': 'Inactive'}} </td>
-                                            </ng-container>
-            
-                                            
-            
-                                            <ng-container matColumnDef="action">
-                                                <th mat-header-cell *matHeaderCellDef></th>
-                                                <td mat-cell *matCellDef="let element">
-                                                    
-                                                    <button mat-icon-button class="list_icon" color="primary">
-                                                        <mat-icon aria-label="Delete">delete</mat-icon>
-                                                    </button>
-                                                </td>
+                            <div class="direction_row" fxlayout="row">
+                                <div fxflex="50" class="half_row">
+                                    <mat-form-field autocomplete="off" class="example-full-width" appearance="outline">
+                                        <mat-label>ES Server IP Address</mat-label>
+                                        <input formControlName="ipAddress" matInput placeholder="Ip Address" required>
+                                    </mat-form-field>
+                                </div>
 
-                                                
-                                               
-                                            </ng-container>
-            
-                                            
-            
-                                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                                            <tr mat-row *matRowDef="let row; columns: displayedColumns;">
-                                            </tr>
-                                        </table>
-            
-                                        <mat-paginator [pageSizeOptions]="[05, 10]" showFirstLastButtons></mat-paginator>
-                                    </div>
+                                <div fxflex="50" class="half_row">
+                                    <mat-form-field autocomplete="off" class="example-full-width" appearance="outline">
+                                        <mat-label>port</mat-label>
+                                        <input formControlName="port" matInput placeholder="ES Server Port" required
+                                          >
+                                    </mat-form-field>
+                                </div>
+
+                            </div>
+
+                            <div class="direction_row" fxlayout="row">
+
+                                <div fxflex="50" class="half_row">
+                                    <mat-form-field appearance="outline" class="example-full-width">
+                                        <mat-label>Environment</mat-label>
+                                        <mat-select placeholder="Connection Type" required
+                                            (selectionChange)="setDefaultDbUrl($event)" formControlName="environment">
+                                            <mat-option value="Devlopment">Devlopment</mat-option>
+                                            <mat-option value="Testing">Testing</mat-option>
+                                            <mat-option value="Production">Production</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+
+
+                                <div fxflex="50" class="half_row">
+                                    <mat-form-field autocomplete="off" class="example-full-width" appearance="outline">
+                                        <mat-label>Project</mat-label>
+                                        <input matInput autocomplete="off" disabled="true"
+                                            Value="IFS_RECOMMENDATION_RND">
+                                    </mat-form-field>
+                                </div>
+
+                            </div>
+                            <div class="direction_row" fxlayout="row">
+
+                                <div fxflex="50" class=" half_row">
+                                    <mat-form-field autocomplete="off" class="example-full-width" appearance="outline">
+                                        <mat-label>Oganisation Unit</mat-label>
+
+                                        <input matInput required autocomplete="off" disabled="true" Value="AjLogic IND">
+                                    </mat-form-field>
+                                </div>
+
+
+
+                            </div>
+
+                            <div class="direction_row" fxlayout="row">
+
+                                <div fxflex="50" class="half_row">
+                                    <mat-slide-toggle color="primary" checked="'true'" formControlName="isActive">
+                                        Activate Elastic Search Server For Futher Opration.</mat-slide-toggle>
+                                </div>
+                            </div>
+
+
                         </mat-card-content>
-    
+                        <mat-card-actions>
+
+                            <div class="btn_right">
+                                <button mat-raised-button color="primary" (click)="verifyServerDetailsAndSave()"
+                                    [disabled]="!esConfigForm.valid" style="width: 150px;margin-right: 50px;">Verify And
+                                    Save</button>
+                            </div>
+                        </mat-card-actions>
                     </mat-card>
-                </div>
-                <mat-divider [vertical]="true"></mat-divider>
-                <div fxflex="60" class="divided_row_2">
-                    <form [formGroup]="esConfigForm" [autocomplete]="'off'">
-                        <mat-card class='mat-elevation-z8'>
-                            <mat-card-title>
-                                <h5 class="group-title">Configured Elastic Search Server</h5>
-                            </mat-card-title>
-                            <mat-divider></mat-divider>
-                            <mat-card-content>
-                                <div class="direction_row" fxlayout="row">
-                                    <div fxflex="50" class="half_row">
-                                        <mat-form-field autocomplete="off" class="example-full-width" appearance="outline">
-                                            <mat-label>ES Server URL</mat-label>
-                                            <input matInput placeholder="User Name"  required formControlName="serverConnectionUrl">
-                                        </mat-form-field>
-                                    </div>
-                                    <div fxflex="50" class="half_row">
-                                            <mat-form-field appearance="outline" class="example-full-width">
-                                                <mat-label>Environment</mat-label>
-                                                <mat-select placeholder="Connection Type" required
-                                                    (selectionChange)="setDefaultDbUrl($event)" formControlName="environment">
-                                                    <mat-option value="Dev">Devlopment</mat-option>
-                                                    <mat-option value="test">Testing</mat-option>
-                                                    <mat-option value="prod">Production</mat-option>
-                                                </mat-select>
-                                            </mat-form-field>
-                                        </div>
-                                    
-                                </div>
-    
-                                <div class="direction_row" fxlayout="row">
-                                    <div fxflex="50" class="half_row">
-                                        <mat-form-field autocomplete="off" class="example-full-width" appearance="outline">
-                                            <mat-label>Project</mat-label>
-                                            <input  matInput
-                                                autocomplete="off" disabled="true" Value="IFS_RECOMMENDATION_RND">
-                                        </mat-form-field>
-                                    </div>
-                                    <div fxflex="50" class=" half_row">
-                                        <mat-form-field autocomplete="off" class="example-full-width" appearance="outline">
-                                            <mat-label>Oganisation Unit</mat-label>
-    
-                                            <input matInput  autocomplete="off" disabled="true" Value="AjLogic IND">
-                                        </mat-form-field>
-                                    </div>
-                                </div>
-                                <div class="direction_row" fxlayout="row">
-                                    <div fxflex="50" class="half_row">
-                                        <mat-slide-toggle color="primary" checked="'true'"  formControlName="isActive">Activate Elastic Search Server For Futher Opration.</mat-slide-toggle>
-                                    </div>
-                                    
-                                </div>
-    
-                            </mat-card-content>
-                            <mat-card-actions>
-    
-                                <div class="btn_right">
-                                    <button mat-raised-button color="primary" (click)="verifyServerDetailsAndSave()" [disabled]="!esConfigForm.valid" style="width: 150px;margin-right: 50px;">Verify And Save</button>
-                                </div>
-                              </mat-card-actions>
-                        </mat-card>
-                    </form>
-    
-                </div>
+                </form>
+
             </div>
         </div>
     </div>
+</div>

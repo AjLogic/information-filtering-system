@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { EsConfigServerHttpService } from './es-http.service';
+import { MatTableDataSource, MatPaginator } from '@angular/material';
+import { EsConfig } from 'src/app/entity/elasticSearchConfig';
 
 @Component({
   selector: 'app-register-es-server',
@@ -11,7 +13,8 @@ export class RegisterEsServerComponent implements OnInit {
 
   dataSource;
   esConfigForm: FormGroup;
-  displayedColumns: string[] = ['serverConnectionUrl','environment','active', 'action'];
+  displayedColumns: string[] = ['IP Address','environment','active', 'action'];
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -20,14 +23,15 @@ export class RegisterEsServerComponent implements OnInit {
 
   ngOnInit() {
       this.intiEsServerForm();
+      this.findAll();
   }
 
   intiEsServerForm() {
     this.esConfigForm = this.formBuilder.group({
-      serverConnectionUrl: ['', Validators.required],
+      ipAddress: ['', Validators.required],
       isActive: [true,Validators.required],
-      environment :[,Validators.required]
-    
+      environment :[,Validators.required],
+      port :['',Validators.required],
     
     });
    
@@ -36,13 +40,23 @@ export class RegisterEsServerComponent implements OnInit {
 
     if(this.esConfigForm.valid){
       
-      this.esHttpService.registerRdbmsDatabase(this.esConfigForm.value).subscribe(
+      this.esHttpService.registeresEsServer(this.esConfigForm.value).subscribe(
         response =>{
         },
         error => {
         }
       )
     }
+
+  }
+
+  findAll(){
+    this.esHttpService.findAllEsServerDetails().subscribe((data: any) => {
+      this.dataSource =  new MatTableDataSource<EsConfig>(data);
+      this.dataSource.paginator = this.paginator;
+    },
+    error => {
+    });
 
   }
 

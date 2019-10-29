@@ -1,7 +1,8 @@
 import { Component, Input } from "@angular/core";
 
 export class EsConfig {
-  serverConnectionUrl :string;
+  ipAdress :string;
+  port :string;
   environment:string
   isActive:boolean
 }
