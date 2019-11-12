@@ -5,6 +5,7 @@ import { ProjectsEsConfig } from 'src/app/entity/projectsEsConfig';
 import { ProjectsRdbmsConfig } from 'src/app/entity/projectsRdbmsConfig';
 import { Observable } from 'rxjs';
 import { ListFilterPipe } from 'src/app/shared/filter/list-filter.pipe';
+import { ChecklistDatabase } from '../rdbms-metadata-tree/ChecklistDatabase';
 
 @Component({
   selector: 'app-es-index',
@@ -22,7 +23,8 @@ export class EsIndexComponent implements OnInit {
   private listOfSchema:any;
   constructor(private _formBuilder: FormBuilder,
   private readonly esindexHttpService: EsIndexHttpService,
-  private readonly listFilter:ListFilterPipe
+  private readonly listFilter:ListFilterPipe,
+  private readonly checkListProvider: ChecklistDatabase
   ) { }
 
   ngOnInit() {
@@ -74,7 +76,6 @@ export class EsIndexComponent implements OnInit {
    loadSchema(){
     this.esindexHttpService.fetchSchema(this.configFormGroup.value).subscribe(
       response =>{
-        
         this.listOfSchema = response.schemaDetails;
       }
     );
@@ -82,21 +83,11 @@ export class EsIndexComponent implements OnInit {
    }
 
    onNextButtonClick() {
-  //   if (this.serverDetailForm.valid) {
-  //     this.changeTabIndex();
-  //     this.serverDetailForm.controls['selectedDatabase'].setValue(this.serverDetailForm.controls['schema'].value);
-  //     this.userDetailService.fetchTableMetadata(this.serverDetailForm.value).subscribe(
-  //         response => {
-  //             this.checkListProvider.setTableMetadataAsDataSource(response.tableDetails); 
-  //         }, error => {
-
-  //             this.snackBar.open('invalid error.', 'Dismiss', { duration: 8000 });
-  //         }
-  //     )
-  // } else {
-  //     this.snackBar.open("invalid", 'Dismiss', { duration: 8000 });
-  // }
-    
+      this.esindexHttpService.fetchTableMetadata(this.configFormGroup.value).subscribe(
+          response => {
+              this.checkListProvider.setTableMetadataAsDataSource(response.tableDetails); 
+      });
+  
   }
 }
 

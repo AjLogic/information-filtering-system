@@ -48,8 +48,8 @@
   .dashboard
 {
     margin-top: 25%;
-    min-height: 800px;
-    height:800px;
+    min-height: 950px;
+    height:950px;
     width: 100%;
     background-color: white;
     margin-top: 5%;
@@ -64,17 +64,18 @@
 .test{
   flex: 1 1 100%; 
   box-sizing: border-box;
-  max-width: 25%;
+  max-width: 20%;
   height:-webkit-fill-available;
- padding: 85px 15px 15px 15px;
-
- height: fit-content;
+  padding: 85px 15px 15px 15px;
+  overflow:auto;
+  background: aliceblue;
 }
 .test1{
   flex: 1 1 100%; 
   box-sizing: border-box;
-  max-width: 75%;
+  max-width: 80%;
   height:-webkit-fill-available;
  padding: 85px 15px 15px 15px;
  height: fit-content; 
+
 }

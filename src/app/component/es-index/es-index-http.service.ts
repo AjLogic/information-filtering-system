@@ -29,5 +29,9 @@ export class EsIndexHttpService {
   fetchSchema(projectsRdbmsConfig : any):Observable<any>{
     return this.http.post("http://localhost:8080/server/config",projectsRdbmsConfig);
   }
+
+  fetchTableMetadata(serverDetails : ServerDetails):Observable<any>{
+    return this.http.post("http://localhost:8080/server/config/tables",serverDetails);
+  }
 }
 

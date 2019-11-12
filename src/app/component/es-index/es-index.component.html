@@ -113,7 +113,7 @@
 
 
                                     <div class="btn_right">
-                                        <button mat-raised-button color="primary" matStepperNext>Next</button>
+                                        <button mat-raised-button color="primary" (click)="onNextButtonClick()" matStepperNext>Next</button>
                                     </div>
                                 </form>
                             </mat-step>
@@ -123,10 +123,13 @@
                                     <div class="containerX">
 
                                         <div class="colored box nopad direction_row" fxlayout="row">
-                                            <div fxflex="25" class=" test">
+                                            <div fxflex="20" class="test">
+                                                    <mat-card-title>
+                                                            <h5 class="group-title">RDBMS MetaData</h5>
+                                                        </mat-card-title>
                                                 <app-rdbms-metadata-tree></app-rdbms-metadata-tree>
                                             </div>
-                                            <div fxflex="75" class=" test1">
+                                            <div fxflex="80" class=" test1">
                                                 Display view
                                             </div>
                                         </div>
