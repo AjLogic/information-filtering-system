@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import { EsIndexHttpService } from './es-index-http.service';
 import { ProjectsEsConfig } from 'src/app/entity/projectsEsConfig';
 import { ProjectsRdbmsConfig } from 'src/app/entity/projectsRdbmsConfig';
@@ -17,14 +17,15 @@ export class EsIndexComponent implements OnInit {
   configFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   isEditable = false;
-  
+  eSIndexData = [{"indexName":"Student" },{ "indexName":"Employee"}];
   private listOfProjectsEsConfig: ProjectsEsConfig[]=[];
   private listOfProjectsRdbmsConfig: ProjectsRdbmsConfig[]=[];
   private listOfSchema:any;
   constructor(private _formBuilder: FormBuilder,
   private readonly esindexHttpService: EsIndexHttpService,
   private readonly listFilter:ListFilterPipe,
-  private readonly checkListProvider: ChecklistDatabase
+  private readonly checkListProvider: ChecklistDatabase,
+  private readonly formBuilder: FormBuilder
   ) { }
 
   ngOnInit() {
@@ -40,7 +41,7 @@ export class EsIndexComponent implements OnInit {
 
     });
     this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
+      esIndexs: new FormArray([])
     });
     this.loaddStaticData();
     
@@ -88,6 +89,12 @@ export class EsIndexComponent implements OnInit {
               this.checkListProvider.setTableMetadataAsDataSource(response.tableDetails); 
       });
   
+    const esIndexs = this.secondFormGroup.get('esIndexs') as FormArray;
+    this.eSIndexData.forEach((element:any) => {
+        esIndexs.push(this.formBuilder.group({
+          indexName:[element.indexName]
+        }));
+    });
   }
 }
 

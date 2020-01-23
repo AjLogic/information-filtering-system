@@ -71,11 +71,11 @@
   background: aliceblue;
 }
 .test1{
-  flex: 1 1 100%; 
-  box-sizing: border-box;
-  max-width: 80%;
-  height:-webkit-fill-available;
+ flex: 1 1 100%; 
+ box-sizing: border-box;
+ max-width: 80%;
+ height:-webkit-fill-available;
  padding: 85px 15px 15px 15px;
- height: fit-content; 
-
+ height: auto;
+ background: aliceblue;
 }

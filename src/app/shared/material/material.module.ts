@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { MatTableModule, MatPaginatorModule, MatCardModule, MatIconModule, MatFormFieldModule, MatInputModule, MatSnackBarModule, MatOptionModule, MatSelect, MatSelectModule, MatTabGroup, MatTabsModule, MatButtonToggleModule, MatButtonToggleGroup, MatButtonModule, MatCheckboxModule, MatDividerModule, MatToolbarModule, MatMenuModule, MatSlideToggleModule, MatStepperModule } from '@angular/material';
-import { FormsModule } from '@angular/forms';
-import {SelectionModel} from '@angular/cdk/collections';
-import {FlatTreeControl} from '@angular/cdk/tree';
-import {MatTreeFlatDataSource, MatTreeFlattener, MatTreeModule} from '@angular/material/tree';
+import {MatTreeModule} from '@angular/material/tree';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {BehaviorSubject} from 'rxjs';
+import {MatExpansionModule} from '@angular/material/expansion';
+
 @NgModule({
   declarations: [],
   imports: [
@@ -31,10 +29,8 @@ import {BehaviorSubject} from 'rxjs';
     MatMenuModule,
     BrowserAnimationsModule,
     MatSlideToggleModule,
-    MatStepperModule
-    
-
-    
+    MatStepperModule,
+    MatExpansionModule 
   ],
   exports: [
     MatTableModule,
@@ -61,7 +57,8 @@ import {BehaviorSubject} from 'rxjs';
     MatMenuModule,
     BrowserAnimationsModule,
     MatSlideToggleModule,
-    MatStepperModule
+    MatStepperModule,
+    MatExpansionModule
 
   ]
 })

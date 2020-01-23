@@ -54,24 +54,31 @@
                                     <div class="direction_row" fxlayout="row">
 
                                         <div class="half_row">
-                                            <mat-form-field appearance="outline"  class="example-full-width">
+                                            <mat-form-field appearance="outline" class="example-full-width">
                                                 <mat-label>RDBMS Connection URL </mat-label>
-                                                <mat-select placeholder="RDBMS Connection URl" required formControlName="serverConnectionUrl" (selectionChange)="serverConnectionUrlChange($event)">
-                                            
-                                                <mat-option *ngFor="let item of listOfProjectsRdbmsConfig " [value]="item?.serverConnectionUrl">{{item?.serverConnectionUrl }}</mat-option>
-                            
+                                                <mat-select placeholder="RDBMS Connection URl" required
+                                                    formControlName="serverConnectionUrl"
+                                                    (selectionChange)="serverConnectionUrlChange($event)">
+
+                                                    <mat-option *ngFor="let item of listOfProjectsRdbmsConfig "
+                                                        [value]="item?.serverConnectionUrl">
+                                                        {{item?.serverConnectionUrl }}</mat-option>
+
                                                 </mat-select>
                                             </mat-form-field>
                                         </div>
-                                       
-                                       
+
+
                                         <div class="half_row">
                                             <mat-form-field appearance="outline" class="example-full-width">
                                                 <mat-label>ES Connection URl </mat-label>
-                                                <mat-select placeholder="ES Connection URl" required formControlName="esConnectionUrl" (selectionChange)="esConnectionUrlChange($event)">
-                                            
-                                                <mat-option *ngFor="let item of listOfProjectsEsConfig " [value]="item?.ipAddress">{{item?.ipAddress}}</mat-option>
-                            
+                                                <mat-select placeholder="ES Connection URl" required
+                                                    formControlName="esConnectionUrl"
+                                                    (selectionChange)="esConnectionUrlChange($event)">
+
+                                                    <mat-option *ngFor="let item of listOfProjectsEsConfig "
+                                                        [value]="item?.ipAddress">{{item?.ipAddress}}</mat-option>
+
                                                 </mat-select>
                                             </mat-form-field>
                                         </div>
@@ -80,8 +87,7 @@
                                     </div>
                                     <div class="direction_row" fxlayout="row">
                                         <div fxflex="50" class="half_row">
-                                            <mat-form-field   class="example-full-width"
-                                                appearance="outline">
+                                            <mat-form-field class="example-full-width" appearance="outline">
                                                 <mat-label>RDBMS Server Port</mat-label>
                                                 <input disabled="true" formControlName="userName" matInput
                                                     placeholder="RDBMS User">
@@ -89,23 +95,25 @@
                                         </div>
 
                                         <div fxflex="50" class="half_row">
-                                            <mat-form-field autocomplete="off" class="example-full-width" appearance="outline">
+                                            <mat-form-field autocomplete="off" class="example-full-width"
+                                                appearance="outline">
                                                 <mat-label>ES Server Port</mat-label>
-                                                <input matInput autocomplete="off"   formControlName="esPort" >
+                                                <input matInput autocomplete="off" formControlName="esPort">
                                             </mat-form-field>
 
                                         </div>
                                     </div>
                                     <div class="direction_row" fxlayout="row">
                                         <div fxflex="50" class="half_row">
-                                                <mat-form-field appearance="outline" class="example-full-width">
-                                                        <mat-label> Schema </mat-label>
-                                                        <mat-select required placeholder="ES Connection URl" required
-                                                            (selectionChange)="setDefaultDbUrl($event)"
-                                                            formControlName="RdbmsSchema">
-                                                            <mat-option *ngFor="let item of listOfSchema " [value]="item">{{item}}</mat-option>
-                                                        </mat-select>
-                                                    </mat-form-field>
+                                            <mat-form-field appearance="outline" class="example-full-width">
+                                                <mat-label> Schema </mat-label>
+                                                <mat-select required placeholder="ES Connection URl" required
+                                                    (selectionChange)="setDefaultDbUrl($event)"
+                                                    formControlName="RdbmsSchema">
+                                                    <mat-option *ngFor="let item of listOfSchema " [value]="item">
+                                                        {{item}}</mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
                                         </div>
                                     </div>
 
@@ -113,29 +121,56 @@
 
 
                                     <div class="btn_right">
-                                        <button mat-raised-button color="primary" (click)="onNextButtonClick()" matStepperNext>Next</button>
+                                        <button mat-raised-button color="primary" (click)="onNextButtonClick()"
+                                            matStepperNext>Next</button>
                                     </div>
                                 </form>
                             </mat-step>
                             <mat-step [stepControl]="secondFormGroup">
+
                                 <form [formGroup]="secondFormGroup">
                                     <ng-template matStepLabel>Select fields for create Index</ng-template>
                                     <div class="containerX">
 
                                         <div class="colored box nopad direction_row" fxlayout="row">
-                                            <div fxflex="20" class="test">
-                                                    <mat-card-title>
-                                                            <h5 class="group-title">RDBMS MetaData</h5>
-                                                        </mat-card-title>
+                                            <div fxflex="40" class="test">
+                                                <mat-card-title>
+                                                    <h5 class="group-title">RDBMS MetaData</h5>
+                                                </mat-card-title>
                                                 <app-rdbms-metadata-tree></app-rdbms-metadata-tree>
                                             </div>
-                                            <div fxflex="80" class=" test1">
-                                                Display view
+                                            <div fxflex="60" class="test1" formArrayName="esIndexs">
+                                                <div class=""
+                                                    *ngFor="let index of secondFormGroup.get('esIndexs')['controls']; let i = index">
+                                                    <mat-accordion>
+                                                        <mat-expansion-panel>
+                                                            <mat-expansion-panel-header>
+                                                                <mat-panel-description>
+                                                                    {{index.get('indexName').value}}
+                                                                </mat-panel-description>
+                                                            </mat-expansion-panel-header>
+
+
+                                                            <div class="card-row">
+                                                                <div class="card-column">
+                                                                    <mat-form-field appearance="outline">
+                                                                        <mat-label>ES Data Type</mat-label>
+                                                                        <mat-select placeholder="ES Data Type" required>
+                                                                            <mat-option value='keyword'>keyword
+                                                                            </mat-option>
+                                                                            <mat-option value='keyword'>Integer
+                                                                            </mat-option>
+                                                                        </mat-select>
+                                                                    </mat-form-field>
+                                                                </div>
+                                                            </div>
+                                                        </mat-expansion-panel>
+                                                    </mat-accordion>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="btn_right">
                                             <button mat-raised-button color="primary" matStepperPrevious>Back</button>
-
                                             <button mat-raised-button color="primary" matStepperNext>Next</button>
                                         </div>
                                     </div>
