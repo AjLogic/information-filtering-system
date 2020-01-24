@@ -3,7 +3,7 @@ import { MatTableModule, MatPaginatorModule, MatCardModule, MatIconModule, MatFo
 import {MatTreeModule} from '@angular/material/tree';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatExpansionModule} from '@angular/material/expansion';
-
+import {MatChipsModule} from '@angular/material/chips';
 @NgModule({
   declarations: [],
   imports: [
@@ -30,7 +30,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     BrowserAnimationsModule,
     MatSlideToggleModule,
     MatStepperModule,
-    MatExpansionModule 
+    MatExpansionModule,
+    MatChipsModule
   ],
   exports: [
     MatTableModule,
@@ -58,7 +59,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     BrowserAnimationsModule,
     MatSlideToggleModule,
     MatStepperModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatChipsModule
 
   ]
 })

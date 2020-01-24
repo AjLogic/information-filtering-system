@@ -14,6 +14,8 @@ export class RdbmsMetadataTreeComponent implements OnInit {
 
   @Output() partiallySelectedChange:EventEmitter <any> = new EventEmitter<any>();
 
+  @Output() selectedField:EventEmitter <any> = new EventEmitter<any>();
+
   flatNodeMap = new Map<TodoItemFlatNode, TodoItemNode>();
 
   /** Map from nested node to flattened node. This helps us to keep the same object for selection */
@@ -175,6 +177,7 @@ export class RdbmsMetadataTreeComponent implements OnInit {
     nodeMetaData.selectedParent = this.selectedParent.item;
     nodeMetaData.child = this.selectedChild.item;
     this.partiallySelectedChange.emit(nodeMetaData);
+    this.selectedField.emit(nodeMetaData);
   }
 
 }

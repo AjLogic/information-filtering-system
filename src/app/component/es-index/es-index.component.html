@@ -137,16 +137,19 @@
                                                 <mat-card-title>
                                                     <h5 class="group-title">RDBMS MetaData</h5>
                                                 </mat-card-title>
-                                                <app-rdbms-metadata-tree></app-rdbms-metadata-tree>
+                                                <app-rdbms-metadata-tree (selectedField)="selectionchange($event)"></app-rdbms-metadata-tree>
                                             </div>
+                                            <mat-divider [vertical]="true"></mat-divider>
                                             <div fxflex="60" class="test1" formArrayName="esIndexs">
                                                 <div class=""
                                                     *ngFor="let index of secondFormGroup.get('esIndexs')['controls']; let i = index">
                                                     <mat-accordion>
-                                                        <mat-expansion-panel>
+                                                        <mat-expansion-panel class="accordion">
                                                             <mat-expansion-panel-header>
-                                                                <mat-panel-description>
-                                                                    {{index.get('indexName').value}}
+                                                                <mat-panel-description class="panel-description">
+                                                                <mat-chip-list aria-label="Fish selection">
+                                                                <mat-chip color="primary" selected>Parent {{index.get('parent')?.value}} Index For {{index.get('child')?.value}} </mat-chip>
+                                                                </mat-chip-list>
                                                                 </mat-panel-description>
                                                             </mat-expansion-panel-header>
 
@@ -166,6 +169,7 @@
                                                             </div>
                                                         </mat-expansion-panel>
                                                     </mat-accordion>
+                                                    <span class="space"></span>
                                                 </div>
                                             </div>
                                         </div>
