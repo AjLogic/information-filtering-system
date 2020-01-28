@@ -34,7 +34,7 @@ export class EsIndexComponent implements OnInit {
       esPort: [{ value: '', disabled: true }],
       rdbmsUser: [],
       esConnectionUrl: [],
-      RdbmsSchema: [],
+      rdbmsDatabase: [],
       rdbmsPort: [],
       connectionType: []
 

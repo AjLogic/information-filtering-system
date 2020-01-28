@@ -109,7 +109,7 @@
                                                 <mat-label> Schema </mat-label>
                                                 <mat-select required placeholder="ES Connection URl" required
                                                     (selectionChange)="setDefaultDbUrl($event)"
-                                                    formControlName="RdbmsSchema">
+                                                    formControlName="rdbmsDatabase">
                                                     <mat-option *ngFor="let item of listOfSchema " [value]="item">
                                                         {{item}}</mat-option>
                                                 </mat-select>
@@ -148,7 +148,7 @@
                                                             <mat-expansion-panel-header>
                                                                 <mat-panel-description class="panel-description">
                                                                 <mat-chip-list aria-label="Fish selection">
-                                                                <mat-chip color="primary" selected>Parent {{index.get('parent')?.value}} Index For {{index.get('child')?.value}} </mat-chip>
+                                                                <mat-chip color="primary" selected>Parent Table :  {{index.get('parent')?.value}} ,  Index For : {{index.get('child')?.value}} </mat-chip>
                                                                 </mat-chip-list>
                                                                 </mat-panel-description>
                                                             </mat-expansion-panel-header>
@@ -162,6 +162,17 @@
                                                                             <mat-option value='keyword'>keyword
                                                                             </mat-option>
                                                                             <mat-option value='keyword'>Integer
+                                                                            </mat-option>
+                                                                        </mat-select>
+                                                                    </mat-form-field>
+                                                                </div>
+                                                                <div class="card-column">
+                                                                    <mat-form-field appearance="outline">
+                                                                        <mat-label>Elastic-Search Analyzer</mat-label>
+                                                                        <mat-select placeholder="ES Data Type" required>
+                                                                            <mat-option value='keyword'>lowercase
+                                                                            </mat-option>
+                                                                            <mat-option value='keyword'>stopwords
                                                                             </mat-option>
                                                                         </mat-select>
                                                                     </mat-form-field>

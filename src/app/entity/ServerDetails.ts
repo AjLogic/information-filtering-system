@@ -6,4 +6,6 @@ export class ServerDetails {
   user:string;
   password:string
   isActive:boolean
+  rdbmsDatabase:string
+  port:string
 }
