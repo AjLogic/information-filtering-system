@@ -1,7 +1,5 @@
 <div class="dashboard">
-
-    <div class="containerX">
-        <div class="colored box nopad direction_row" fxlayout="row">
+     <div class="colored box nopad direction_row" fxlayout="row">
             <div fxflex="100" class=" divided_row_1">
 
                 <mat-card class='mat-elevation-z8'>
@@ -127,11 +125,12 @@
                                 </form>
                             </mat-step>
                             <mat-step [stepControl]="secondFormGroup">
-
+                                <div class="btn_right">
+                                    <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+                                    <button mat-raised-button color="primary" matStepperNext>Next</button>
+                                </div>
                                 <form [formGroup]="secondFormGroup">
                                     <ng-template matStepLabel>Select fields for create Index</ng-template>
-                                    <div class="containerX">
-
                                         <div class="colored box nopad direction_row" fxlayout="row">
                                             <div fxflex="40" class="test">
                                                 <mat-card-title>
@@ -140,7 +139,7 @@
                                                 <app-rdbms-metadata-tree (selectedField)="selectionchange($event)"></app-rdbms-metadata-tree>
                                             </div>
                                             <mat-divider [vertical]="true"></mat-divider>
-                                            <div fxflex="60" class="test1" formArrayName="esIndexs">
+                                            <div fxflex="60"  flex layout-fill class="test1" formArrayName="esIndexs">
                                                 <div class=""
                                                     *ngFor="let index of secondFormGroup.get('esIndexs')['controls']; let i = index">
                                                     <mat-accordion>
@@ -184,11 +183,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="btn_right">
-                                            <button mat-raised-button color="primary" matStepperPrevious>Back</button>
-                                            <button mat-raised-button color="primary" matStepperNext>Next</button>
-                                        </div>
-                                    </div>
+                                        
+                                    
                                 </form>
                             </mat-step>
                             <mat-step>
@@ -204,6 +200,6 @@
                 </mat-card>
             </div>
         </div>
-    </div>
+
 
 </div>

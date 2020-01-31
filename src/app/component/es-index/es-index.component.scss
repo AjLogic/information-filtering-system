@@ -2,8 +2,9 @@
     flex: 1 1 100%; 
     box-sizing: border-box;
     max-width: 100%;
-    height:-webkit-fill-available;
+   // height:-webkit-fill-available;
    padding: 85px 15px 15px 15px;
+   height: calc(100% - 76px)
 }
 
 .group-title {
@@ -48,12 +49,12 @@
   .dashboard
 {
     margin-top: 25%;
-    min-height: 950px;
-    height:950px;
     width: 100%;
     background-color: white;
     margin-top: 5%;
     overflow: hidden;
+    height: -webkit-calc(100% - 76px);
+    overflow: auto;
 }
 
 
