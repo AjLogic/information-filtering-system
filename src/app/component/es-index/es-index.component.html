@@ -125,10 +125,7 @@
                                 </form>
                             </mat-step>
                             <mat-step [stepControl]="secondFormGroup">
-                                <div class="btn_right">
-                                    <button mat-raised-button color="primary" matStepperPrevious>Back</button>
-                                    <button mat-raised-button color="primary" matStepperNext>Next</button>
-                                </div>
+                                
                                 <form [formGroup]="secondFormGroup">
                                     <ng-template matStepLabel>Select fields for create Index</ng-template>
                                         <div class="colored box nopad direction_row" fxlayout="row">
@@ -186,6 +183,10 @@
                                         
                                     
                                 </form>
+                                <div class="btn_right">
+                                    <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+                                    <button mat-raised-button color="primary" matStepperNext>Next</button>
+                                </div>
                             </mat-step>
                             <mat-step>
                                 <ng-template matStepLabel>Done</ng-template>
