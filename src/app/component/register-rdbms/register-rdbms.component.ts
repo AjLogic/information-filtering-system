@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewChild, AfterContentInit } from '@angular/core';
-import { MatTableDataSource, MatPaginator } from '@angular/material';
+
 import { RdbmsEntity } from './register-entity.module';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { RdbmsHttpService } from './rdbms-http.service'
+import { RdbmsHttpService } from './rdbms-http.service';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-register-rdbms',
@@ -11,28 +13,29 @@ import { RdbmsHttpService } from './rdbms-http.service'
 })
 export class RegisterRdbmsComponent implements OnInit , AfterContentInit {
 
+  constructor(
+    private formBuilder: FormBuilder,
+    public rdbmsHttpService: RdbmsHttpService
+  ) { }
+;
+
   rdbmsRegisterForm: FormGroup;
   serverNamePrifix: string = "";
   dataSource;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
-  constructor(
-    private formBuilder: FormBuilder,
-    public rdbmsHttpService: RdbmsHttpService
-  ) { }
+  displayedColumns: string[] = ['Connection Type', 'Server URL', 'User' ,'active', 'action'];
 
   ngOnInit() {
     this.intiRdbmsForm();
     this.findAll();
-   
-  }
-  
-  ngAfterContentInit(){
-    
+
   }
 
-  displayedColumns: string[] = ['Connection Type', 'Server URL', 'User' ,'active', 'action'];
- 
+  ngAfterContentInit(){
+
+  }
+
 
   intiRdbmsForm() {
     this.rdbmsRegisterForm = this.formBuilder.group({
@@ -84,8 +87,7 @@ export class RegisterRdbmsComponent implements OnInit , AfterContentInit {
         }
       )
     }
-  };
-
+  }
   findAll(){
     this.rdbmsHttpService.findAllRdbmsServerDetails().subscribe((data: any) => {
       this.dataSource =  new MatTableDataSource<RdbmsEntity>(data);
@@ -95,7 +97,7 @@ export class RegisterRdbmsComponent implements OnInit , AfterContentInit {
     });
 
   }
-  
+
 
 }
 

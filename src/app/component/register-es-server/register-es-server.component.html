@@ -47,7 +47,7 @@
                                             <mat-icon aria-label="Delete">delete</mat-icon>
                                         </button>
                                     </td>
-                                   
+
                                 </ng-container>
 
 
@@ -96,7 +96,7 @@
                                     <mat-form-field appearance="outline" class="example-full-width">
                                         <mat-label>Environment</mat-label>
                                         <mat-select placeholder="Connection Type" required
-                                            (selectionChange)="setDefaultDbUrl($event)" formControlName="environment">
+                                            formControlName="environment">
                                             <mat-option value="Devlopment">Devlopment</mat-option>
                                             <mat-option value="Testing">Testing</mat-option>
                                             <mat-option value="Production">Production</mat-option>

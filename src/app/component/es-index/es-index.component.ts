@@ -17,9 +17,9 @@ export class EsIndexComponent implements OnInit {
   configFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   isEditable = false;
-  private listOfProjectsEsConfig: ProjectsEsConfig[] = [];
-  private listOfProjectsRdbmsConfig: ProjectsRdbmsConfig[] = [];
-  private listOfSchema: any;
+   listOfProjectsEsConfig: ProjectsEsConfig[] = [];
+   listOfProjectsRdbmsConfig: ProjectsRdbmsConfig[] = [];
+   listOfSchema: any;
   constructor(private _formBuilder: FormBuilder,
     private readonly esindexHttpService: EsIndexHttpService,
     private readonly listFilter: ListFilterPipe,

@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { EsConfigServerHttpService } from './es-http.service';
-import { MatTableDataSource, MatPaginator } from '@angular/material';
+
 import { EsConfig } from 'src/app/entity/elasticSearchConfig';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-register-es-server',
@@ -32,14 +34,14 @@ export class RegisterEsServerComponent implements OnInit {
       isActive: [true,Validators.required],
       environment :[,Validators.required],
       port :['',Validators.required],
-    
+
     });
-   
+
   }
   verifyServerDetailsAndSave(){
 
     if(this.esConfigForm.valid){
-      
+
       this.esHttpService.registeresEsServer(this.esConfigForm.value).subscribe(
         response =>{
         },

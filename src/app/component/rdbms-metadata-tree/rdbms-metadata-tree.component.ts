@@ -2,8 +2,9 @@ import { Component, OnInit, Output , EventEmitter } from '@angular/core';
 
 import { TodoItemFlatNode, TodoItemNode, ChecklistDatabase } from './ChecklistDatabase';
 import { FlatTreeControl } from '@angular/cdk/tree';
-import { MatTreeFlattener, MatTreeFlatDataSource } from '@angular/material';
+
 import { SelectionModel } from '@angular/cdk/collections';
+import { MatTreeFlattener, MatTreeFlatDataSource } from '@angular/material/tree';
 
 @Component({
   selector: 'app-rdbms-metadata-tree',
@@ -24,7 +25,7 @@ export class RdbmsMetadataTreeComponent implements OnInit {
   /** A selected parent node to be inserted */
   selectedParent: TodoItemFlatNode ;
   selectedChild: TodoItemFlatNode ;
- 
+
   /** The new item's name */
   newItemName = '';
 
@@ -53,7 +54,6 @@ export class RdbmsMetadataTreeComponent implements OnInit {
       this.isExpandable, this.getChildren);
     this.treeControl = new FlatTreeControl<TodoItemFlatNode>(this.getLevel, this.isExpandable);
     this.dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
-
     _database.dataChange.subscribe(data => {
       this.dataSource.data = data;
     });
@@ -170,7 +170,7 @@ export class RdbmsMetadataTreeComponent implements OnInit {
     const nestedNode = this.flatNodeMap.get(node);
     this._database.updateItem(nestedNode!, itemValue);
   }
-  
+
   selectedChange(){
 
     let nodeMetaData:any ={};
