@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
-import { RegisterRdbmsComponent } from './component/register-rdbms/register-rdbms.component';
+import { RegisterRdbmsComponent } from './component/register-chat/register-rdbms.component';
+
 import { RequestInterceptorModule } from './shared/service/http-interceptor.service';
 
 const routes: Routes = [
   {path: 'dashboard', component: DashboardComponent },
-  {path: 'register-rdbms', component: RegisterRdbmsComponent },
+  {path: 'chat', component: RegisterRdbmsComponent },
 ];
 
 @NgModule({

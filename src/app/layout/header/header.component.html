@@ -2,21 +2,10 @@
     <mat-toolbar color="primary" class='mat-elevation-z6 app-navbar'>
         <mat-toolbar-row>
             
-            <button mat-button routerLink="./dashboard">IFS</button>
-            <button mat-button [matMenuTriggerFor]="esconfig">ElasticSerarch Config</button>
+            <button mat-button routerLink="./dashboard">Chat APP DEMO </button>
+            <button mat-button [matMenuTriggerFor]="esconfig">Chat With Teams</button>
             <mat-menu #esconfig="matMenu">
-                <button mat-menu-item routerLink="./register-es">Register ES Server</button>
-                <button mat-menu-item routerLink="./es-index">Create ES Index</button>
-                <button mat-menu-item>sync ES Database</button>
-            </mat-menu>
-            <button mat-button [matMenuTriggerFor]="settings">RDBMS Settings</button>
-            <mat-menu #settings="matMenu">
-                <button mat-menu-item routerLink="./register-rdbms">Register Relation Database</button>
-                <button mat-menu-item>Schedule Sync Data</button>
-            </mat-menu>
-            <button mat-button [matMenuTriggerFor]="help">Help</button>
-            <mat-menu #help="matMenu">
-                <button mat-menu-item>Help</button>
+                <button mat-menu-item routerLink="./chat">Chat</button>
             </mat-menu>
         </mat-toolbar-row>
 

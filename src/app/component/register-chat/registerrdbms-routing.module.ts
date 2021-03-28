@@ -5,7 +5,7 @@ import { RegisterRdbmsComponent } from './register-rdbms.component';
 
 
 const routes: Routes = [
-  { path: 'register-rdbms', component: RegisterRdbmsComponent },
+  { path: 'chat', component: RegisterRdbmsComponent },
  
 ];
 

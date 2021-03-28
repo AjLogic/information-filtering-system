@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { RegisterRdbmsComponent } from './register-rdbms.component';
 import { RegisterRDBMSRoutingModule } from './registerrdbms-routing.module';
-import { RdbmsHttpService } from './rdbms-http.service';
+import { ChatHttpService } from './rdbms-http.service';
 
 
 
@@ -20,6 +20,6 @@ import { RdbmsHttpService } from './rdbms-http.service';
   declarations: [
     RegisterRdbmsComponent
   ],
-  providers:[RdbmsHttpService]
+  providers:[ChatHttpService]
 })
 export class RegisterRdbmsModule { }

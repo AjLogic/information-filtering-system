@@ -1,0 +1,54 @@
+<div class="dashboard">
+
+    <div class="containerX">
+        <div class="colored box nopad direction_row" fxlayout="row">
+            <div fxflex="40" class=" divided_row_1">
+
+                <mat-card class='mat-elevation-z8'>
+
+                    <mat-card-title>
+                        <h5 class="group-title">Please Select Team For Chat</h5>
+                    </mat-card-title>
+                        <mat-card-content>
+                            <mat-form-field appearance="outline" class="example-full-width">
+                                <mat-label>Teams</mat-label>
+                                <mat-select placeholder="Connection Type" (selectionChange)="setTeam($event)" required>
+                                    <mat-option value="Team 1">Team 1</mat-option>
+                                    <mat-option value="Team 2">Team 2</mat-option>
+                                    <mat-option value="Team 3">Team 3</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+        
+                       </mat-card-content>
+
+                       <mat-card-actions>
+
+                        <div >
+                            <button mat-raised-button color="primary" (click)="moveTochatRoom()">Move To Chat Room</button>
+                        </div>
+                    </mat-card-actions>
+                    
+                </mat-card>
+            </div>
+            <mat-divider [vertical]="true"></mat-divider>
+            <div fxflex="60" class=" divided_row_2" *ngIf='chatRoom'>
+                
+                <mat-card-title>
+                    <h1 class="group-title">Chat Room {{selectedTeam}} </h1>
+                </mat-card-title>
+                <mat-divider></mat-divider>
+
+                        <h3 style="text-align: left ;color:brown">to MESSAGE</h3>
+                        <h4  style="text-align: right">from message</h4>
+                        <mat-card-content>
+                            <mat-form-field autocomplete="off" class="example-full-width" appearance="outline">
+                                <mat-label>Message</mat-label>
+                                <input  matInput placeholder="message" required>
+                            </mat-form-field>
+                        </mat-card-content>
+                            
+                            <button mat-raised-button class="direction_row" color="primary" (click)="moveTochatRoom()">Send Message</button>
+            </div>
+        </div>
+    </div>
+</div>
